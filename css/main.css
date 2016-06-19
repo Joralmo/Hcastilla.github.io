@@ -27,18 +27,6 @@ header h1{
 	color: rgba(0, 0, 0, 0.50);
 }
 
-header a {
-	height: 50px;
-	width: 50px;
-	background-color: white;	
-	border-radius: 100%;
-	margin-top: 80px;
-	color: #00ab58;
-	animation-iteration-count: infinite;
-}
-header a  i {
-	margin-top: 7px;
-}
 /* -------------------------------------------*/
 
 
