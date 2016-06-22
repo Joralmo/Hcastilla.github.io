@@ -1,20 +1,16 @@
 'use strict';
 
 $(document).ready(function(){
-    
-    $('.parallax').parallax();
-    
-    $('a[href*="#"]:not([href="#"])').click(function() {
-        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-          var target = $(this.hash);
-          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-          if (target.length) {
-            $('html, body').animate({
-              scrollTop: target.offset().top
-            }, 1100);
-            return false;
-          }
-        }
-    });
 
+    $('a.scroll').on('click',function(e){
+        e.preventDefault();
+        let element = $(this).attr('href');
+        let pos = $(element).position();
+        $('html,body').animate({
+            scrollTop:pos.top
+        },800)
+    });
+    
 });
+
+
