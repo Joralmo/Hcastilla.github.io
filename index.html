@@ -9,8 +9,8 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 </head>
-<body>
 
+<body>
 	<header class="green accent-3 valign-wrapper ">
 		<div class="row">
 			<div class="class s12">
@@ -31,10 +31,19 @@
 		
 	</section>
 	
-	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" async src="js/transition.js"></script>
-	<script type="text/javascript" async src="js/materialize.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
+
+	<script type="text/javascript"  src="js/jquery.js"></script>
+	
+	<script type="text/javascript">
+		
+		$(window).load(function() {
+			alert('message')
+			$.getScript( "js/main.js" );
+			$.getScript( "js/transition.js" );
+			$.getScript( "js/materialize.js" );
+		});
+		
+	</script>
 
 </body>
 </html>
