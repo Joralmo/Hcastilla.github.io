@@ -37,17 +37,18 @@
 	<script type="text/javascript">
 		
 		$(window).load(function() {
-			alert('message')
+			$('head').append('<link rel="stylesheet" href="css/materialize.css">');
+			$('head').append('<link rel="stylesheet" href="css/main.css">');
+			$('head').append('<link rel="stylesheet" href="css/animate.css">');
 			$.getScript( "js/main.js" );
 			$.getScript( "js/transition.js" );
 			$.getScript( "js/materialize.js" );
 		});
-		
+
 	</script>
 
 </body>
 </html>
 
-<link rel="stylesheet" href="css/materialize.css">
-<link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/animate.css">
+
+
