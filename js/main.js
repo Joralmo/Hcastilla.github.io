@@ -24,11 +24,13 @@ h.useProgram(i),i.uDirectionalColor=h.getUniformLocation(i,"uDirectionalColor["+
 this.faces.push([l*(i+0)+0+j,l*(i+1)+1+j,l*(i+1)+0+j])};d.prototype.cylinder=function(){for(var a=new Array(arguments.length),b=0;b<a.length;++b)a[b]=arguments[b];var c=a[0]||50,f=a[1]||c,g="number"==typeof a[2]?a[2]:24,h="number"==typeof a[3]?a[3]:16,i="cylinder|"+c+"|"+f+"|"+g+"|"+h;if(!this._renderer.geometryInHash(i)){var j=new d.Geometry(g,h);e.call(j,c,c,f,g,h,!0,!0),j.computeNormals(),this._renderer.createBuffers(i,j)}return this._renderer.drawBuffers(i),this},d.prototype.cone=function(){for(var a=new Array(arguments.length),b=0;b<a.length;++b)a[b]=arguments[b];var c=a[0]||50,f=a[1]||c,g="number"==typeof a[2]?a[2]:24,h="number"==typeof a[3]?a[3]:16,i="cone|"+c+"|"+f+"|"+g+"|"+h;if(!this._renderer.geometryInHash(i)){var j=new d.Geometry(g,h);e.call(j,c,0,f,g,h,!0,!0),j.computeNormals(),this._renderer.createBuffers(i,j)}return this._renderer.drawBuffers(i),this},d.prototype.ellipsoid=function(){for(var a=new Array(arguments.length),b=0;b<a.length;++b)a[b]=arguments[b];var c="number"==typeof a[3]?a[3]:24,e="number"==typeof a[4]?a[4]:24,f=a[0]||50,g=a[1]||f,h=a[2]||f,i="ellipsoid|"+f+"|"+g+"|"+h+"|"+c+"|"+e;if(!this._renderer.geometryInHash(i)){var j=function(){for(var a,b,c,e=0;e<=this.detailY;e++){b=e/this.detailY;for(var i=0;i<=this.detailX;i++){a=i/this.detailX;var j=2*Math.PI*a,k=Math.PI*b-Math.PI/2;c=new d.Vector(f*Math.cos(k)*Math.sin(j),g*Math.sin(k),h*Math.cos(k)*Math.cos(j)),this.vertices.push(c),this.uvs.push([a,b])}}},k=new d.Geometry(c,e,j);k.computeFaces().computeNormals(),this._renderer.createBuffers(i,k)}return this._renderer.drawBuffers(i),this},d.prototype.torus=function(){for(var a=new Array(arguments.length),b=0;b<a.length;++b)a[b]=arguments[b];var c="number"==typeof a[2]?a[2]:24,e="number"==typeof a[3]?a[3]:16,f=a[0]||50,g=a[1]||10,h="torus|"+f+"|"+g+"|"+c+"|"+e;if(!this._renderer.geometryInHash(h)){var i=function(){for(var a,b,c,e=0;e<=this.detailY;e++){b=e/this.detailY;for(var h=0;h<=this.detailX;h++){a=h/this.detailX;var i=2*Math.PI*a,j=2*Math.PI*b;c=new d.Vector((f+g*Math.cos(j))*Math.cos(i),(f+g*Math.cos(j))*Math.sin(i),g*Math.sin(j)),this.vertices.push(c),this.uvs.push([a,b])}}},j=new d.Geometry(c,e,i);j.computeFaces().computeNormals().averageNormals(),this._renderer.createBuffers(h,j)}return this._renderer.drawBuffers(h),this},d.RendererGL.prototype.point=function(a,b,c){return console.log("point not yet implemented in webgl"),this},d.RendererGL.prototype.triangle=function(a){var b=a[0],c=a[1],e=a[2],f=a[3],g=a[4],h=a[5],i=a[6],j=a[7],k=a[8],l="tri|"+b+"|"+c+"|"+e+"|"+f+"|"+g+"|"+h+i+"|"+j+"|"+k;if(!this.geometryInHash(l)){var m=function(){var a=[];a.push(new d.Vector(b,c,e)),a.push(new d.Vector(f,g,h)),a.push(new d.Vector(i,j,k)),this.vertices=a,this.faces=[[0,1,2]],this.uvs=[[0,0],[0,1],[1,1]]},n=new d.Geometry(1,1,m);n.computeNormals(),this.createBuffers(l,n)}return this.drawBuffers(l),this},d.RendererGL.prototype.ellipse=function(a){var b=a[0],c=a[1],e=a[2],f=a[3],g=a[4],h=a[5]||24,i=a[6]||16,j="ellipse|"+a[0]+"|"+a[1]+"|"+a[2]+"|"+a[3]+"|"+a[4];if(!this.geometryInHash(j)){var k=function(){for(var a,h,i,j=0;j<=this.detailY;j++){h=j/this.detailY;for(var k=0;k<=this.detailX;k++){a=k/this.detailX;var l=2*Math.PI*a;if(0===h)i=new d.Vector(b,c,e);else{var m=b+f*Math.sin(l),n=c+g*Math.cos(l),o=e;i=new d.Vector(m,n,o)}this.vertices.push(i),this.uvs.push([a,h])}}},l=new d.Geometry(h,i,k);l.computeFaces().computeNormals(),this.createBuffers(j,l)}return this.drawBuffers(j),this},d.RendererGL.prototype.rect=function(a){var b="rect|"+a[0]+"|"+a[1]+"|"+a[2]+"|"+a[3]+"|"+a[4],c=a[0],e=a[1],f=a[2],g=a[3],h=a[4],i=a[5]||24,j=a[6]||16;if(!this.geometryInHash(b)){var k=function(){for(var a,b,i,j=0;j<=this.detailY;j++){b=j/this.detailY;for(var k=0;k<=this.detailX;k++)a=k/this.detailX,i=new d.Vector((c+g)*a,(e+h)*b,f),this.vertices.push(i),this.uvs.push([a,b])}},l=new d.Geometry(i,j,k);l.computeFaces().computeNormals(),this.createBuffers(b,l)}return this.drawBuffers(b),this},d.RendererGL.prototype.quad=function(){for(var a=new Array(arguments.length),b=0;b<a.length;++b)a[b]=arguments[b];var c=a[0],e=a[1],f=a[2],g=a[3],h=a[4],i=a[5],j=a[6],k=a[7],l=a[8],m=a[9],n=a[10],o=a[11],p="quad|"+c+"|"+e+"|"+f+"|"+g+"|"+h+"|"+i+j+"|"+k+"|"+l+m+"|"+n+"|"+o;if(!this.geometryInHash(p)){var q=function(){this.vertices.push(new d.Vector(c,e,f)),this.vertices.push(new d.Vector(g,h,i)),this.vertices.push(new d.Vector(j,k,l)),this.vertices.push(new d.Vector(m,n,o)),this.uvs.push([0,0],[1,0],[1,1],[0,1])},r=new d.Geometry(2,2,q);r.computeNormals(),r.faces=[[0,1,2],[2,3,0]],this.createBuffers(p,r)}return this.drawBuffers(p),this},d.RendererGL.prototype.bezier=function(a){var b=a[12]||20;this.beginShape();for(var c=[0,0,0,0],d=[0,0,0],e=0;b>=e;e++)c[0]=Math.pow(1-e/b,3),c[1]=3*(e/b)*Math.pow(1-e/b,2),c[2]=3*Math.pow(e/b,2)*(1-e/b),c[3]=Math.pow(e/b,3),d[0]=a[0]*c[0]+a[3]*c[1]+a[6]*c[2]+a[9]*c[3],d[1]=a[1]*c[0]+a[4]*c[1]+a[7]*c[2]+a[10]*c[3],d[2]=a[2]*c[0]+a[5]*c[1]+a[8]*c[2]+a[11]*c[3],this.vertex(d[0],d[1],d[2]);return this.endShape(),this},d.RendererGL.prototype.curve=function(a){var b=a[12];this.beginShape();for(var c=[0,0,0,0],d=[0,0,0],e=0;b>=e;e++)c[0]=.5*Math.pow(e/b,3),c[1]=.5*Math.pow(e/b,2),c[2]=e/b*.5,c[3]=.5,d[0]=c[0]*(-a[0]+3*a[3]-3*a[6]+a[9])+c[1]*(2*a[0]-5*a[3]+4*a[6]-a[9])+c[2]*(-a[0]+a[6])+2*c[3]*a[3],d[1]=c[0]*(-a[1]+3*a[4]-3*a[7]+a[10])+c[1]*(2*a[1]-5*a[4]+4*a[7]-a[10])+c[2]*(-a[1]+a[7])+2*c[3]*a[4],d[2]=c[0]*(-a[2]+3*a[5]-3*a[8]+a[11])+c[1]*(2*a[2]-5*a[5]+4*a[8]-a[11])+c[2]*(-a[2]+a[8])+2*c[3]*a[5],this.vertex(d[0],d[1],d[2]);return this.endShape(),this},b.exports=d},{"../core/core":37,"./p5.Geometry":82}],88:[function(a,b,c){b.exports={immediateVert:"attribute vec3 aPosition;\nattribute vec4 aVertexColor;\n\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\nuniform float uResolution;\nuniform float uPointSize;\n\nvarying vec4 vColor;\nvoid main(void) {\n  vec4 positionVec4 = vec4(aPosition / uResolution *vec3(1.0, -1.0, 1.0), 1.0);\n  gl_Position = uProjectionMatrix * uModelViewMatrix * positionVec4;\n  vColor = aVertexColor;\n  gl_PointSize = uPointSize;\n}\n",vertexColorVert:"attribute vec3 aPosition;\nattribute vec4 aVertexColor;\n\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\nuniform float uResolution;\n\nvarying vec4 vColor;\n\nvoid main(void) {\n  vec4 positionVec4 = vec4(aPosition / uResolution * vec3(1.0, -1.0, 1.0), 1.0);\n  gl_Position = uProjectionMatrix * uModelViewMatrix * positionVec4;\n  vColor = aVertexColor;\n}\n",vertexColorFrag:"precision mediump float;\nvarying vec4 vColor;\nvoid main(void) {\n  gl_FragColor = vColor;\n}",normalVert:"attribute vec3 aPosition;\nattribute vec3 aNormal;\nattribute vec2 aTexCoord;\n\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\nuniform mat3 uNormalMatrix;\nuniform float uResolution;\n\nvarying vec3 vVertexNormal;\nvarying highp vec2 vVertTexCoord;\n\nvoid main(void) {\n  vec4 positionVec4 = vec4(aPosition / uResolution, 1.0);\n  gl_Position = uProjectionMatrix * uModelViewMatrix * positionVec4;\n  vVertexNormal = vec3( uNormalMatrix * aNormal );\n  vVertTexCoord = aTexCoord;\n}\n",normalFrag:"precision mediump float;\nvarying vec3 vVertexNormal;\nvoid main(void) {\n  gl_FragColor = vec4(vVertexNormal, 1.0);\n}",basicFrag:"precision mediump float;\nvarying vec3 vVertexNormal;\nuniform vec4 uMaterialColor;\nvoid main(void) {\n  gl_FragColor = uMaterialColor;\n}",lightVert:"attribute vec3 aPosition;\nattribute vec3 aNormal;\nattribute vec2 aTexCoord;\n\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\nuniform mat3 uNormalMatrix;\nuniform float uResolution;\nuniform int uAmbientLightCount;\nuniform int uDirectionalLightCount;\nuniform int uPointLightCount;\n\nuniform vec3 uAmbientColor[8];\nuniform vec3 uLightingDirection[8];\nuniform vec3 uDirectionalColor[8];\nuniform vec3 uPointLightLocation[8];\nuniform vec3 uPointLightColor[8];\nuniform bool uSpecular;\n\nvarying vec3 vVertexNormal;\nvarying vec2 vVertTexCoord;\nvarying vec3 vLightWeighting;\n\nvec3 ambientLightFactor = vec3(0.0, 0.0, 0.0);\nvec3 directionalLightFactor = vec3(0.0, 0.0, 0.0);\nvec3 pointLightFactor = vec3(0.0, 0.0, 0.0);\nvec3 pointLightFactor2 = vec3(0.0, 0.0, 0.0);\n\nvoid main(void){\n\n  vec4 positionVec4 = vec4(aPosition / uResolution, 1.0);\n  gl_Position = uProjectionMatrix * uModelViewMatrix * positionVec4;\n\n  vec3 vertexNormal = vec3( uNormalMatrix * aNormal );\n  vVertexNormal = vertexNormal;\n  vVertTexCoord = aTexCoord;\n\n  vec4 mvPosition = uModelViewMatrix * vec4(aPosition / uResolution, 1.0);\n  vec3 eyeDirection = normalize(-mvPosition.xyz);\n\n  float shininess = 32.0;\n  float specularFactor = 2.0;\n  float diffuseFactor = 0.3;\n\n  for(int i = 0; i < 8; i++){\n    if(uAmbientLightCount == i) break;\n    ambientLightFactor += uAmbientColor[i];\n  }\n\n  for(int j = 0; j < 8; j++){\n    if(uDirectionalLightCount == j) break;\n    vec3 dir = uLightingDirection[j];\n    float directionalLightWeighting = max(dot(vertexNormal, dir), 0.0);\n    directionalLightFactor += uDirectionalColor[j] * directionalLightWeighting;\n  }\n\n  for(int k = 0; k < 8; k++){\n    if(uPointLightCount == k) break;\n    vec3 loc = uPointLightLocation[k];\n    //loc = loc / uResolution;\n    vec3 lightDirection = normalize(loc - mvPosition.xyz);\n\n    float directionalLightWeighting = max(dot(vertexNormal, lightDirection), 0.0);\n    pointLightFactor += uPointLightColor[k] * directionalLightWeighting;\n\n    //factor2 for specular\n    vec3 reflectionDirection = reflect(-lightDirection, vertexNormal);\n    float specularLightWeighting = pow(max(dot(reflectionDirection, eyeDirection), 0.0), shininess);\n\n    pointLightFactor2 += uPointLightColor[k] * (specularFactor * specularLightWeighting\n      +  directionalLightWeighting * diffuseFactor);\n  }\n\n  if(!uSpecular){\n    vLightWeighting =  ambientLightFactor + directionalLightFactor + pointLightFactor;\n  }else{\n    vLightWeighting = ambientLightFactor + directionalLightFactor + pointLightFactor2;\n  }\n\n}\n",lightTextureFrag:"precision mediump float;\n\nuniform vec4 uMaterialColor;\nuniform sampler2D uSampler;\nuniform bool isTexture;\n\nvarying vec3 vLightWeighting;\nvarying highp vec2 vVertTexCoord;\n\nvoid main(void) {\n  if(!isTexture){\n    gl_FragColor = vec4(vec3(uMaterialColor.rgb * vLightWeighting), uMaterialColor.a);\n  }else{\n    vec4 textureColor = texture2D(uSampler, vVertTexCoord);\n    if(vLightWeighting == vec3(0., 0., 0.)){\n      gl_FragColor = textureColor;\n    }else{\n      gl_FragColor = vec4(vec3(textureColor.rgb * vLightWeighting), textureColor.a); \n    }\n  }\n}"}},{}]},{},[28])(28)});
 
 
+let fullLoad = false;
 
 $(window).load(function() {
 	$("#pageLoader").delay(2000).fadeOut(2000,function(){
 		$('html').css('overflow-y','initial');
 		$('body').css('overflow-y','initial');
+		fullLoad = true;
 	});
 });
 
@@ -46,24 +48,399 @@ $(document).ready(function(){
  });
 
 
+let e1, e2, e3, e4 = {};
+let canvas;
+let cara1; 
+let cara2;
+let moveN = 1;
+let p;
+let p2;
+let speed;
 function setup() {
-	  var myCanvas = createCanvas(windowWidth, windowHeight);
-  		myCanvas.parent('myContainer');
+	canvas = createCanvas(windowWidth, windowHeight);
+  	canvas.parent('boxContainer');
+  	
+  	speed = 0.5;
+
+  	p = {x:windowWidth/2, y:windowHeight/2}
+  	p2 = {x:windowWidth/2, y:windowHeight/2-150}
+  	
+  	cara1 = [
+  		e1 = {
+  			x:p.x, y:p.y,
+  			move1:{x:p.x - 150, y: p.y -150},
+  			move2:{x:p.x, y:p.y - 300},
+  			move3:{x:p.x + 150, y: p.y - 150},
+  			move4:{x:p.x, y:p.y}
+  		},
+
+
+  		e2 = {x:p.x - 150, y: p.y -150,
+  			move1:{x:p.x, y:p.y - 300},
+  			move2:{x:p.x + 150, y: p.y - 150},
+  			move3:{x:p.x, y:p.y},
+  			move4:{x:p.x - 150, y: p.y -150}
+  		},
+
+
+  		e3 = {
+  			x:p.x + 150, y: p.y - 150,
+  			move1:{x:p.x, y:p.y},
+  			move2:{x:p.x - 150, y: p.y -150},
+  			move3:{x:p.x, y:p.y - 300},
+  			move4:{x:p.x + 150, y: p.y - 150}
+  		},
+  		
+  		e4 = {
+  			x:p.x, y:p.y - 300,
+  			move1:{x:p.x + 150, y: p.y - 150},
+  			move2:{x:p.x, y:p.y},
+  			move3:{x:p.x - 150, y: p.y -150},
+  			move4:{x:p.x, y:p.y - 300}
+  		}
+  	]
+
+  	cara2 = [
+
+  	  	e8 = {
+  			x:p2.x, y:p2.y,
+  			move1:{x:p2.x+150, y:p2.y+150},
+  			move2:{x:p2.x, y: p2.y + 300},
+  			move3:{x:p2.x-150, y:p2.y + 150},
+  			move4:{x:p2.x, y:p2.y}
+  		},
+  		e5 = {
+  			x:p2.x-150, y:p2.y + 150,
+  			move1:{x:p2.x, y:p2.y},
+  			move2:{x:p2.x+150, y:p2.y+150},
+  			move3:{x:p2.x, y: p2.y + 300},
+  			move4:{x:p2.x-150, y:p2.y + 150}
+  		},
+
+  		e7 = {
+  			x:p2.x, y: p2.y + 300,
+  			move1:{x:p2.x-150, y:p2.y + 150},
+  			move2:{x:p2.x, y:p2.y},
+  			move3:{x:p2.x+150, y:p2.y+150},
+  			move4:{x:p2.x, y: p2.y + 300}
+  		},
+
+  		e6 = {
+  			x:p2.x+150, y:p2.y+150,
+  			move1:{x:p2.x, y: p2.y + 300},
+  			move2:{x:p2.x-150, y:p2.y + 150},
+  			move3:{x:p2.x, y:p2.y},
+  			move4:{x:p2.x+150, y:p2.y+150}
+  		}
+  	]
 }
 
 function draw() {
-  background(127);
-  noStroke();
-  for (var i = 0; i < height; i += 20) {
-    fill(129, 206, 15);
-    rect(0, i, width, 10);
-    fill(255);
-    rect(i, 0, 10, height);
-  }
+	if(fullLoad	 == true){
+		clear();	
+
+		drawPoints();
+		drawLines();
+		moveCube();
+	}
+}
+
+function moveCube(){
+	var next = true;
+	
+	for(var i = 0; i < cara1.length; i++){
+
+		var e = cara1[i];
+
+		if (moveN == 1) {
+			if (e.x < e.move1.x) {
+				next = false;
+				e.x += speed;
+			}
+
+			if (e.x > e.move1.x) {
+				next = false;
+				e.x -= speed;
+			}
+
+			if (e.y < e.move1.y) {
+				next = false;
+				e.y += speed;
+			}
+
+			if (e.y > e.move1.y) {
+				next = false;
+				e.y -= speed;
+			}
+		}
+
+		if (moveN == 2) {
+			if (e.x < e.move2.x) {
+				next = false;
+				e.x += speed;
+			}
+
+			if (e.x > e.move2.x) {
+				next = false;
+				e.x -= speed;
+			}
+
+			if (e.y < e.move2.y) {
+				next = false;
+				e.y += speed;
+			}
+
+			if (e.y > e.move2.y) {
+				next = false;
+				e.y -= speed;
+			}
+		}
+
+		if (moveN == 3) {
+			if (e.x < e.move3.x) {
+				next = false;
+				e.x += speed;
+			}
+
+			if (e.x > e.move3.x) {
+				next = false;
+				e.x -= speed;
+			}
+
+			if (e.y < e.move3.y) {
+				next = false;
+				e.y += speed;
+			}
+
+			if (e.y > e.move3.y) {
+				next = false;
+				e.y -= speed;
+			}
+		}
+
+		if (moveN == 4) {
+			if (e.x < e.move4.x) {
+				next = false;
+				e.x += speed;
+			}
+
+			if (e.x > e.move4.x) {
+				next = false;
+				e.x -= speed;
+			}
+
+			if (e.y < e.move4.y) {
+				next = false;
+				e.y += speed;
+			}
+
+			if (e.y > e.move4.y) {
+				next = false;
+				e.y -= speed;
+			}
+		}
+	}
+
+	for(var i = 0; i < cara2.length; i++){
+		
+		var e = cara2[i];
+
+		if (moveN == 1) {
+			if (e.x < e.move1.x) {
+				e.x += speed;
+			}
+
+			if (e.x > e.move1.x) {
+				e.x -= speed;
+			}
+
+			if (e.y < e.move1.y) {
+				e.y += speed;
+			}
+
+			if (e.y > e.move1.y) {
+				e.y -= speed;
+			}
+		}
+
+		if (moveN == 2) {
+			if (e.x < e.move2.x) {
+				e.x += speed;
+			}
+
+			if (e.x > e.move2.x) {
+				e.x -= speed;
+			}
+
+			if (e.y < e.move2.y) {
+				e.y += speed;
+			}
+
+			if (e.y > e.move2.y) {
+				e.y -= speed;
+			}
+		}
+
+		if (moveN == 3) {
+			if (e.x < e.move3.x) {
+				e.x += speed;
+			}
+
+			if (e.x > e.move3.x) {
+				e.x -= speed;
+			}
+
+			if (e.y < e.move3.y) {
+				e.y += speed;
+			}
+
+			if (e.y > e.move3.y) {
+				e.y -= speed;
+			}
+		}
+
+		if (moveN == 4) {
+			if (e.x < e.move4.x) {
+				e.x += speed;
+			}
+
+			if (e.x > e.move4.x) {
+				e.x -= speed;
+			}
+
+			if (e.y < e.move4.y) {
+				e.y += speed;
+			}
+
+			if (e.y > e.move4.y) {
+				e.y -= speed;
+			}
+		}
+	}
+
+	if (next == true) {
+		if (moveN == 4) {
+			moveN = 1;
+		}else{
+			moveN += 1;
+		}
+	}
+}
+
+function drawPoints(){
+	noStroke();
+	/* CARA1 */
+	for(var i = 0; i < cara1.length;i++){
+		ellipse(cara1[i].x, cara1[i].y, 6);
+	}
+
+	/* CARA1 */
+	for(var i = 0; i < cara2.length;i++){
+		ellipse(cara2[i].x, cara2[i].y, 6);
+	}
+}
+
+function drawLines(){
+		stroke('#005a2e');
+		
+		/*  CARA1 */
+
+		line(e1.x, e1.y, e2.x, e2.y);
+		line(e1.x, e1.y, e3.x, e3.y);
+
+		line(e4.x, e4.y, e2.x, e2.y);
+		line(e4.x, e4.y, e3.x, e3.y);
+
+		/* CARA2 */
+
+		line(e7.x, e7.y, e5.x, e5.y);
+		line(e7.x, e7.y, e6.x, e6.y);
+
+		line(e8.x, e8.y, e5.x, e5.y);
+		line(e8.x, e8.y, e6.x, e6.y);
+
+		/* UNIONES */
+		line(e1.x, e1.y, e7.x, e7.y);
+		line(e2.x, e2.y, e5.x, e5.y);
+		line(e3.x, e3.y, e6.x, e6.y);
+		line(e4.x, e4.y, e8.x, e8.y);
+
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+	resizeCanvas(windowWidth, windowHeight);
+
+	p = {x:windowWidth/2, y:windowHeight/2}
+  	p2 = {x:windowWidth/2, y:windowHeight/2-150}
+  	
+  	cara1 = [
+  		e1 = {
+  			x:p.x, y:p.y,
+  			move1:{x:p.x - 150, y: p.y -150},
+  			move2:{x:p.x, y:p.y - 300},
+  			move3:{x:p.x + 150, y: p.y - 150},
+  			move4:{x:p.x, y:p.y}
+  		},
+
+
+  		e2 = {x:p.x - 150, y: p.y -150,
+  			move1:{x:p.x, y:p.y - 300},
+  			move2:{x:p.x + 150, y: p.y - 150},
+  			move3:{x:p.x, y:p.y},
+  			move4:{x:p.x - 150, y: p.y -150}
+  		},
+
+
+  		e3 = {
+  			x:p.x + 150, y: p.y - 150,
+  			move1:{x:p.x, y:p.y},
+  			move2:{x:p.x - 150, y: p.y -150},
+  			move3:{x:p.x, y:p.y - 300},
+  			move4:{x:p.x + 150, y: p.y - 150}
+  		},
+  		
+  		e4 = {
+  			x:p.x, y:p.y - 300,
+  			move1:{x:p.x + 150, y: p.y - 150},
+  			move2:{x:p.x, y:p.y},
+  			move3:{x:p.x - 150, y: p.y -150},
+  			move4:{x:p.x, y:p.y - 300}
+  		}
+  	]
+
+  	cara2 = [
+
+  	  	e8 = {
+  			x:p2.x, y:p2.y,
+  			move1:{x:p2.x+150, y:p2.y+150},
+  			move2:{x:p2.x, y: p2.y + 300},
+  			move3:{x:p2.x-150, y:p2.y + 150},
+  			move4:{x:p2.x, y:p2.y}
+  		},
+  		e5 = {
+  			x:p2.x-150, y:p2.y + 150,
+  			move1:{x:p2.x, y:p2.y},
+  			move2:{x:p2.x+150, y:p2.y+150},
+  			move3:{x:p2.x, y: p2.y + 300},
+  			move4:{x:p2.x-150, y:p2.y + 150}
+  		},
+
+  		e7 = {
+  			x:p2.x, y: p2.y + 300,
+  			move1:{x:p2.x-150, y:p2.y + 150},
+  			move2:{x:p2.x, y:p2.y},
+  			move3:{x:p2.x+150, y:p2.y+150},
+  			move4:{x:p2.x, y: p2.y + 300}
+  		},
+
+  		e6 = {
+  			x:p2.x+150, y:p2.y+150,
+  			move1:{x:p2.x, y: p2.y + 300},
+  			move2:{x:p2.x-150, y:p2.y + 150},
+  			move3:{x:p2.x, y:p2.y},
+  			move4:{x:p2.x+150, y:p2.y+150}
+  		}
+  	]
 }
 
 

@@ -32,7 +32,11 @@
 /* generals */
 
 /*********************************/
+#boxContainercontenu { 
+	position:absolute; 
+}
 
+canvas { position:absolute; top:0; left:0; z-index:1; }
 /*********************************/
 
 /* header */
@@ -48,16 +52,18 @@ header h1{
 }
 
 .down{
+	position: absolute;
+	bottom: 50px;
     width: 40px;
     height: 40px;
+    left: calc(50% - 20px);
     background-color: white;
     border-radius: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: calc(50% - 20px); 
-    margin-top: 50px;
     animation-iteration-count: infinite;
+    z-index: 3;
 }
 
 .down a{
