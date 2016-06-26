@@ -1,7 +1,7 @@
 
-let fullLoad = false;
 
 $(window).load(function() {
+	
 	$("#pageLoader").delay(2000).fadeOut(2000,function(){
 		$('html').css('overflow-y','initial');
 		$('body').css('overflow-y','initial');
@@ -11,8 +11,12 @@ $(window).load(function() {
 		});
 
 		$.getScript('js/cubo.js',function(a){
-			fullLoad = true;
 			$('head').append('<script type="text/javascript"  src="js/main.js">'+a+'</script>');
+				
+			$.getScript('js/selectPlot.js',function(a){
+				$('head').append('<script type="text/javascript"  src="js/main.js">'+a+'</script>');
+			});
+			
 		});
 	});
 });

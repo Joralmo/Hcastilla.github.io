@@ -11,166 +11,172 @@ let p;
 let p2;
 let speed;
 
+let large;
+
+function positions(l, s){
+    moveN = 1;
+    
+    speed = s;
+    
+    large = l;
+    
+    p = {x:windowWidth/2 -3, y:windowHeight/2}
+    p2 = {x:windowWidth/2 -3, y:windowHeight/2-large}
+    
+    
+    
+    cara1 = [
+        e1 = {
+            x:p.x, y:p.y,
+            move1:{x:p.x - large, y: p.y -large},
+            move2:{x:p.x, y:p.y - large *2},
+            move3:{x:p.x + large, y: p.y - large},
+            move4:{x:p.x, y:p.y}
+        },
+
+
+        e2 = {x:p.x - large, y: p.y -large,
+            move1:{x:p.x, y:p.y - large*2},
+            move2:{x:p.x + large, y: p.y - large},
+            move3:{x:p.x, y:p.y},
+            move4:{x:p.x - large, y: p.y -large}
+        },
+
+
+        e3 = {
+            x:p.x + large, y: p.y - large,
+            move1:{x:p.x, y:p.y},
+            move2:{x:p.x - large, y: p.y -large},
+            move3:{x:p.x, y:p.y - large*2},
+            move4:{x:p.x + large, y: p.y - large}
+        },
+        
+        e4 = {
+            x:p.x, y:p.y - large*2,
+            move1:{x:p.x + large, y: p.y - large},
+            move2:{x:p.x, y:p.y},
+            move3:{x:p.x - large, y: p.y -large},
+            move4:{x:p.x, y:p.y - large*2}
+        }
+    ]
+
+    cara2 = [
+
+        e8 = {
+            x:p2.x, y:p2.y,
+            move1:{x:p2.x+large, y:p2.y+large},
+            move2:{x:p2.x, y: p2.y + large*2},
+            move3:{x:p2.x-large, y:p2.y + large},
+            move4:{x:p2.x, y:p2.y}
+        },
+        e5 = {
+            x:p2.x-large, y:p2.y + large,
+            move1:{x:p2.x, y:p2.y},
+            move2:{x:p2.x+large, y:p2.y+large},
+            move3:{x:p2.x, y: p2.y + large*2},
+            move4:{x:p2.x-large, y:p2.y + large}
+        },
+
+        e7 = {
+            x:p2.x, y: p2.y + large*2,
+            move1:{x:p2.x-large, y:p2.y + large},
+            move2:{x:p2.x, y:p2.y},
+            move3:{x:p2.x+large, y:p2.y+large},
+            move4:{x:p2.x, y: p2.y + large*2}
+        },
+
+        e6 = {
+            x:p2.x+large, y:p2.y+large,
+            move1:{x:p2.x, y: p2.y + large*2},
+            move2:{x:p2.x-large, y:p2.y + large},
+            move3:{x:p2.x, y:p2.y},
+            move4:{x:p2.x+large, y:p2.y+large}
+        }
+    ]
+
+    sCara1 = [
+        s1 = {
+            x:p.x, y:p.y,
+            move1:{x:p.x - large, y: p.y -large},
+            move2:{x:p.x, y:p.y - large *2},
+            move3:{x:p.x + large, y: p.y - large},
+            move4:{x:p.x, y:p.y}
+        },
+
+
+        s2 = {x:p.x - large, y: p.y -large,
+            move1:{x:p.x, y:p.y - large*2},
+            move2:{x:p.x + large, y: p.y - large},
+            move3:{x:p.x, y:p.y},
+            move4:{x:p.x - large, y: p.y -large}
+        },
+
+
+        s3 = {
+            x:p.x + large, y: p.y - large,
+            move1:{x:p.x, y:p.y},
+            move2:{x:p.x - large, y: p.y -large},
+            move3:{x:p.x, y:p.y - large*2},
+            move4:{x:p.x + large, y: p.y - large}
+        },
+        
+        s4 = {
+            x:p.x, y:p.y - large*2,
+            move1:{x:p.x + large, y: p.y - large},
+            move2:{x:p.x, y:p.y},
+            move3:{x:p.x - large, y: p.y -large},
+            move4:{x:p.x, y:p.y - large*2}
+        }
+    ]
+
+    sCara2 = [
+
+        s8 = {
+            x:p2.x, y:p2.y,
+            move1:{x:p2.x+large, y:p2.y+large},
+            move2:{x:p2.x, y: p2.y + large*2},
+            move3:{x:p2.x-large, y:p2.y + large},
+            move4:{x:p2.x, y:p2.y}
+        },
+        s5 = {
+            x:p2.x-large, y:p2.y + large,
+            move1:{x:p2.x, y:p2.y},
+            move2:{x:p2.x+large, y:p2.y+large},
+            move3:{x:p2.x, y: p2.y + large*2},
+            move4:{x:p2.x-large, y:p2.y + large}
+        },
+
+        s7 = {
+            x:p2.x, y: p2.y + large*2,
+            move1:{x:p2.x-large, y:p2.y + large},
+            move2:{x:p2.x, y:p2.y},
+            move3:{x:p2.x+large, y:p2.y+large},
+            move4:{x:p2.x, y: p2.y + large*2}
+        },
+
+        s6 = {
+            x:p2.x+large, y:p2.y+large,
+            move1:{x:p2.x, y: p2.y + large*2},
+            move2:{x:p2.x-large, y:p2.y + large},
+            move3:{x:p2.x, y:p2.y},
+            move4:{x:p2.x+large, y:p2.y+large}
+        }
+    ]
+}
 
 function setup() {
 	canvas = createCanvas(windowWidth, windowHeight);
   	canvas.parent('boxContainer');
-  	
-  	moveN = 1;
-  	speed = 0.5;
-
-  	p = {x:windowWidth/2 -3, y:windowHeight/2}
-  	p2 = {x:windowWidth/2 -3, y:windowHeight/2-150}
-  	
-  	cara1 = [
-  		e1 = {
-  			x:p.x, y:p.y,
-  			move1:{x:p.x - 150, y: p.y -150},
-  			move2:{x:p.x, y:p.y - 300},
-  			move3:{x:p.x + 150, y: p.y - 150},
-  			move4:{x:p.x, y:p.y}
-  		},
-
-
-  		e2 = {x:p.x - 150, y: p.y -150,
-  			move1:{x:p.x, y:p.y - 300},
-  			move2:{x:p.x + 150, y: p.y - 150},
-  			move3:{x:p.x, y:p.y},
-  			move4:{x:p.x - 150, y: p.y -150}
-  		},
-
-
-  		e3 = {
-  			x:p.x + 150, y: p.y - 150,
-  			move1:{x:p.x, y:p.y},
-  			move2:{x:p.x - 150, y: p.y -150},
-  			move3:{x:p.x, y:p.y - 300},
-  			move4:{x:p.x + 150, y: p.y - 150}
-  		},
-  		
-  		e4 = {
-  			x:p.x, y:p.y - 300,
-  			move1:{x:p.x + 150, y: p.y - 150},
-  			move2:{x:p.x, y:p.y},
-  			move3:{x:p.x - 150, y: p.y -150},
-  			move4:{x:p.x, y:p.y - 300}
-  		}
-  	]
-
-  	cara2 = [
-
-  	  	e8 = {
-  			x:p2.x, y:p2.y,
-  			move1:{x:p2.x+150, y:p2.y+150},
-  			move2:{x:p2.x, y: p2.y + 300},
-  			move3:{x:p2.x-150, y:p2.y + 150},
-  			move4:{x:p2.x, y:p2.y}
-  		},
-  		e5 = {
-  			x:p2.x-150, y:p2.y + 150,
-  			move1:{x:p2.x, y:p2.y},
-  			move2:{x:p2.x+150, y:p2.y+150},
-  			move3:{x:p2.x, y: p2.y + 300},
-  			move4:{x:p2.x-150, y:p2.y + 150}
-  		},
-
-  		e7 = {
-  			x:p2.x, y: p2.y + 300,
-  			move1:{x:p2.x-150, y:p2.y + 150},
-  			move2:{x:p2.x, y:p2.y},
-  			move3:{x:p2.x+150, y:p2.y+150},
-  			move4:{x:p2.x, y: p2.y + 300}
-  		},
-
-  		e6 = {
-  			x:p2.x+150, y:p2.y+150,
-  			move1:{x:p2.x, y: p2.y + 300},
-  			move2:{x:p2.x-150, y:p2.y + 150},
-  			move3:{x:p2.x, y:p2.y},
-  			move4:{x:p2.x+150, y:p2.y+150}
-  		}
-  	]
-
-  	sCara1 = [
-  		s1 = {
-  			x:p.x, y:p.y,
-  			move1:{x:p.x - 150, y: p.y -150},
-  			move2:{x:p.x, y:p.y - 300},
-  			move3:{x:p.x + 150, y: p.y - 150},
-  			move4:{x:p.x, y:p.y}
-  		},
-
-
-  		s2 = {x:p.x - 150, y: p.y -150,
-  			move1:{x:p.x, y:p.y - 300},
-  			move2:{x:p.x + 150, y: p.y - 150},
-  			move3:{x:p.x, y:p.y},
-  			move4:{x:p.x - 150, y: p.y -150}
-  		},
-
-
-  		s3 = {
-  			x:p.x + 150, y: p.y - 150,
-  			move1:{x:p.x, y:p.y},
-  			move2:{x:p.x - 150, y: p.y -150},
-  			move3:{x:p.x, y:p.y - 300},
-  			move4:{x:p.x + 150, y: p.y - 150}
-  		},
-  		
-  		s4 = {
-  			x:p.x, y:p.y - 300,
-  			move1:{x:p.x + 150, y: p.y - 150},
-  			move2:{x:p.x, y:p.y},
-  			move3:{x:p.x - 150, y: p.y -150},
-  			move4:{x:p.x, y:p.y - 300}
-  		}
-  	]
-
-  	sCara2 = [
-
-  	  	s8 = {
-  			x:p2.x, y:p2.y,
-  			move1:{x:p2.x+150, y:p2.y+150},
-  			move2:{x:p2.x, y: p2.y + 300},
-  			move3:{x:p2.x-150, y:p2.y + 150},
-  			move4:{x:p2.x, y:p2.y}
-  		},
-  		s5 = {
-  			x:p2.x-150, y:p2.y + 150,
-  			move1:{x:p2.x, y:p2.y},
-  			move2:{x:p2.x+150, y:p2.y+150},
-  			move3:{x:p2.x, y: p2.y + 300},
-  			move4:{x:p2.x-150, y:p2.y + 150}
-  		},
-
-  		s7 = {
-  			x:p2.x, y: p2.y + 300,
-  			move1:{x:p2.x-150, y:p2.y + 150},
-  			move2:{x:p2.x, y:p2.y},
-  			move3:{x:p2.x+150, y:p2.y+150},
-  			move4:{x:p2.x, y: p2.y + 300}
-  		},
-
-  		s6 = {
-  			x:p2.x+150, y:p2.y+150,
-  			move1:{x:p2.x, y: p2.y + 300},
-  			move2:{x:p2.x-150, y:p2.y + 150},
-  			move3:{x:p2.x, y:p2.y},
-  			move4:{x:p2.x+150, y:p2.y+150}
-  		}
-  	]
-
-
+  	positions(135, 0.5);
 }
 
 function draw() {
-	if(fullLoad	 == true){
-		clear();	
 
-		drawPoints();
-		drawLines();
-		moveCube();
-	}
+	clear();	
+	drawPoints();
+	drawLines();
+	moveCube();
+	
 }
 
 function moveCube(){
@@ -424,145 +430,5 @@ function drawLines(){
 
 function windowResized() {
 	resizeCanvas(windowWidth, windowHeight);
-
-  	p = {x:windowWidth/2 -3, y:windowHeight/2}
-  	p2 = {x:windowWidth/2 -3, y:windowHeight/2-150}
-  	
-  	cara1 = [
-  		e1 = {
-  			x:p.x, y:p.y,
-  			move1:{x:p.x - 150, y: p.y -150},
-  			move2:{x:p.x, y:p.y - 300},
-  			move3:{x:p.x + 150, y: p.y - 150},
-  			move4:{x:p.x, y:p.y}
-  		},
-
-
-  		e2 = {x:p.x - 150, y: p.y -150,
-  			move1:{x:p.x, y:p.y - 300},
-  			move2:{x:p.x + 150, y: p.y - 150},
-  			move3:{x:p.x, y:p.y},
-  			move4:{x:p.x - 150, y: p.y -150}
-  		},
-
-
-  		e3 = {
-  			x:p.x + 150, y: p.y - 150,
-  			move1:{x:p.x, y:p.y},
-  			move2:{x:p.x - 150, y: p.y -150},
-  			move3:{x:p.x, y:p.y - 300},
-  			move4:{x:p.x + 150, y: p.y - 150}
-  		},
-  		
-  		e4 = {
-  			x:p.x, y:p.y - 300,
-  			move1:{x:p.x + 150, y: p.y - 150},
-  			move2:{x:p.x, y:p.y},
-  			move3:{x:p.x - 150, y: p.y -150},
-  			move4:{x:p.x, y:p.y - 300}
-  		}
-  	]
-
-  	cara2 = [
-
-  	  	e8 = {
-  			x:p2.x, y:p2.y,
-  			move1:{x:p2.x+150, y:p2.y+150},
-  			move2:{x:p2.x, y: p2.y + 300},
-  			move3:{x:p2.x-150, y:p2.y + 150},
-  			move4:{x:p2.x, y:p2.y}
-  		},
-  		e5 = {
-  			x:p2.x-150, y:p2.y + 150,
-  			move1:{x:p2.x, y:p2.y},
-  			move2:{x:p2.x+150, y:p2.y+150},
-  			move3:{x:p2.x, y: p2.y + 300},
-  			move4:{x:p2.x-150, y:p2.y + 150}
-  		},
-
-  		e7 = {
-  			x:p2.x, y: p2.y + 300,
-  			move1:{x:p2.x-150, y:p2.y + 150},
-  			move2:{x:p2.x, y:p2.y},
-  			move3:{x:p2.x+150, y:p2.y+150},
-  			move4:{x:p2.x, y: p2.y + 300}
-  		},
-
-  		e6 = {
-  			x:p2.x+150, y:p2.y+150,
-  			move1:{x:p2.x, y: p2.y + 300},
-  			move2:{x:p2.x-150, y:p2.y + 150},
-  			move3:{x:p2.x, y:p2.y},
-  			move4:{x:p2.x+150, y:p2.y+150}
-  		}
-  	]
-
-  	  	sCara1 = [
-  		s1 = {
-  			x:p.x, y:p.y,
-  			move1:{x:p.x - 150, y: p.y -150},
-  			move2:{x:p.x, y:p.y - 300},
-  			move3:{x:p.x + 150, y: p.y - 150},
-  			move4:{x:p.x, y:p.y}
-  		},
-
-
-  		s2 = {x:p.x - 150, y: p.y -150,
-  			move1:{x:p.x, y:p.y - 300},
-  			move2:{x:p.x + 150, y: p.y - 150},
-  			move3:{x:p.x, y:p.y},
-  			move4:{x:p.x - 150, y: p.y -150}
-  		},
-
-
-  		s3 = {
-  			x:p.x + 150, y: p.y - 150,
-  			move1:{x:p.x, y:p.y},
-  			move2:{x:p.x - 150, y: p.y -150},
-  			move3:{x:p.x, y:p.y - 300},
-  			move4:{x:p.x + 150, y: p.y - 150}
-  		},
-  		
-  		s4 = {
-  			x:p.x, y:p.y - 300,
-  			move1:{x:p.x + 150, y: p.y - 150},
-  			move2:{x:p.x, y:p.y},
-  			move3:{x:p.x - 150, y: p.y -150},
-  			move4:{x:p.x, y:p.y - 300}
-  		}
-  	]
-
-  	sCara2 = [
-
-  	  	s8 = {
-  			x:p2.x, y:p2.y,
-  			move1:{x:p2.x+150, y:p2.y+150},
-  			move2:{x:p2.x, y: p2.y + 300},
-  			move3:{x:p2.x-150, y:p2.y + 150},
-  			move4:{x:p2.x, y:p2.y}
-  		},
-  		s5 = {
-  			x:p2.x-150, y:p2.y + 150,
-  			move1:{x:p2.x, y:p2.y},
-  			move2:{x:p2.x+150, y:p2.y+150},
-  			move3:{x:p2.x, y: p2.y + 300},
-  			move4:{x:p2.x-150, y:p2.y + 150}
-  		},
-
-  		s7 = {
-  			x:p2.x, y: p2.y + 300,
-  			move1:{x:p2.x-150, y:p2.y + 150},
-  			move2:{x:p2.x, y:p2.y},
-  			move3:{x:p2.x+150, y:p2.y+150},
-  			move4:{x:p2.x, y: p2.y + 300}
-  		},
-
-  		s6 = {
-  			x:p2.x+150, y:p2.y+150,
-  			move1:{x:p2.x, y: p2.y + 300},
-  			move2:{x:p2.x-150, y:p2.y + 150},
-  			move3:{x:p2.x, y:p2.y},
-  			move4:{x:p2.x+150, y:p2.y+150}
-  		}
-  	]
+    positions(135, 0.5);
 }
