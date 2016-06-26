@@ -341,7 +341,7 @@ function drawPoints(){
 }
 
 function drawLines(){
-		stroke('#005a2e');
+		stroke('#fff');
 		
 		/*  CARA1 */
 
