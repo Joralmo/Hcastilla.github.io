@@ -361,6 +361,12 @@ function drawPoints(){
 	for(var i = 0; i < cara1.length;i++){
 		ellipse(cara1[i].x, cara1[i].y, 6);
 	}
+
+	/* CARA1 */
+	for(var i = 0; i < cara2.length;i++){
+		ellipse(cara2[i].x, cara2[i].y, 6);
+	}
+
 }
 
 function drawLines(){

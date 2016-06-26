@@ -9,7 +9,7 @@ $(window).load(function() {
 		$.getScript('js/libs.js',function(a){
 			$('head').append('<script type="text/javascript"  src="js/main.js">'+a+'</script>');
 		});
-		
+
 		$.getScript('js/cubo.js',function(a){
 			fullLoad = true;
 			$('head').append('<script type="text/javascript"  src="js/main.js">'+a+'</script>');
@@ -28,7 +28,7 @@ $(document).ready(function(){
         let pos = $(element).position();
         $('html,body').animate({
             scrollTop:pos.top
-        },1500)
+        },'slow')
     });
 
     /****************************************/
