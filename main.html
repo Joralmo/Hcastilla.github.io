@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+	
 	<meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width">
-
+	<meta charset="UTF-8">
 	<title>PlotF</title>
+
 	<style>
 		body{
 		  overflow-y:hidden;
@@ -98,16 +99,16 @@
 			transition: all .5s;
 		}
 	</style>
+	
 </head>
-
 <body>
 	
 	<section id="pageLoader">
-		
 		<div class="box"></div>
 		<div class="box2"></div>
 		<div class="ball"></div>
 	</section>
+
 	
 	<div id="boxContainer"></div>
 	
@@ -126,30 +127,24 @@
 		</div>
 		
 	</header>
-
+	
 	<section id="content" class="container">
 		
 		<div class="row plostSelects" >
 			<div class="col s12 m6 l6 ">
-				<div class="green accent-3 plotSelect">
-					a
+				<div id="ps" class="green accent-3 plotSelect">
+					
 				</div>
 			</div>
 			<div class="col s12 m6 l6 ">
-				<div class="grey darken-4 plotSelect">
+				<div class="grey darken-4 plotSelect pS2">
 					a
 				</div>
 			</div>
 		</div>
 	</section>
+
+	<div id="visualization"></div>
 </body>
+<script type="text/javascript" src="js/main2.js"></script>
 </html>
-
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="css/main.css">
-
-<script type="text/javascript"  src="js/jquery.js"></script>
-<script type="text/javascript"  src="js/main.js"></script>
-
-
-
