@@ -1,16 +1,32 @@
-var container = document.getElementById('ps');
-	var items = [
-	    {x: '2014-06-11', y: 10},
-	    {x: '2014-06-12', y: 25},
-	    {x: '2014-06-13', y: 30},
-	    {x: '2014-06-14', y: 10},
-	    {x: '2014-06-15', y: 15},
-	    {x: '2014-06-16', y: 30}
-	];
+/*
+function plotPresentacion()
+{
+	var ctx = document.getElementById("myChart").getContext("2d");
+	var scatterChart = new Chart(ctx, {
+	    type: 'line',
+	    data: {
+	        datasets: [{
+	            label: 'Scatter Dataset',
+	            fill:false,
+	            data: [{x: -10,y: 0}, {x: 0,y: 10}, 
+					   {x: 10,y: 5}]
+	        },{
+	            label: 'a',
+	            fill:false,
+	            data: [{x: -2,y: 4}, {x: 0,y: 10}, 
+					   {x: 10,y: 5}]
+	        }]
+	    },
+	    options: {
+	        scales: {
+	            xAxes: [{
+	                type: 'linear',
+	                position: 'bottom'
+	            }]
+	        },
+	        responsive:true
+	    }
+	});
+}
+*/
 
-	var dataset = new vis.DataSet(items);
-	var options = {
-	    start: '2014-06-10',
-	    end: '2014-06-18'
-	};
-	var Graph2d = new vis.Graph2d(container, dataset, options);

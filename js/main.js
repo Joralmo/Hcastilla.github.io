@@ -38,7 +38,7 @@ $(document).ready(function(){
         let pos = $(element).position();
         $('html,body').animate({
             scrollTop:pos.top
-        },'slow')
+        },1500)
     });
 
     /****************************************/
